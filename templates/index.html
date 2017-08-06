@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- load MUI -->
+    <link href="//cdn.muicss.com/mui-0.9.20/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.9.20/js/mui.min.js"></script>
+  </head>
+  <body>
+    <!-- example content -->
+    <div class="mui-container">
+      <div class="mui-panel">
+        <h1>Run4Hope 2017 Updates</h1>
+          <hr> </hr>
+          {% for message in messages %}
+          <div class="mui--text-dark mui--text-headline">{{ message }}</div>
+          {% endfor %}
+          <form action="/" method="post" class="mui-form">
+              <legend>Subscribe to Text Message Updates</legend>
+              <div class="mui-textfield">
+                <input type="tel" name="telnumber" placeholder="555-555-5555">
+                  <label>Cell Phone</label>
+              </div>
+
+              <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+          </form>
+          <h4> Draw Updates </h4>
+          <ul>
+              {% for d in updates.draws() %}
+                  <li><a target="_blank" href="{{ d['url'] }}">{{ d['name'] }}</a></li>
+              {% endfor %}
+          </ul>
+          <h4> Results </h4>
+          <ul>
+              {% for d in updates.results() %}
+                  <li><a target="_blank" href="{{ d['url'] }}">{{ d['name'] }}</a></li>
+              {% endfor %}
+          </ul>
+
+      </div>
+
+
+    </div>
+  </body>
+</html>
