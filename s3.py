@@ -4,7 +4,10 @@ import config
 
 class Updates(object):
     def __init__(self):
-        self.boto_session = boto3.session.Session(region_name=config.SNS_TOPIC_REGION)
+        self.boto_session = boto3.session.Session(
+            region_name=config.SNS_TOPIC_REGION
+        )
+
         self.s3_listing = self._bucket_listing()
 
     def current(self):

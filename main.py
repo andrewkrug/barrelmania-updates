@@ -1,4 +1,6 @@
-from flask import Flask, flash, render_template, request
+from flask import Flask
+from flask import render_template
+from flask import request
 
 import s3
 import sns
